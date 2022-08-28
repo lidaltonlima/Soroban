@@ -1,4 +1,3 @@
-from re import L
 from pygame.draw import polygon, line
 
 class Count:
@@ -37,18 +36,18 @@ class Frame:
         self.pos_div = pos_div
     
     def draw(self, x: int, y: int):
+        # right line
+        line(self.screen, self.color_lr, (x + self.weight_lr / 2, y),
+             (x + self.weight_lr / 2, y + self.height), width=self.weight_lr)
+        # Left line
+        line(self.screen, self.color_lr, (x + self.width - self.weight_lr / 2, y),
+             (x + self.width - self.weight_lr / 2, y + self.height), width=self.weight_lr)
         # Top line
         line(self.screen, self.color_tb, (x, y + self.weight_tb / 2 - 1),
              (x + self.width, y + self.weight_tb / 2 - 1), width=self.weight_tb)
         # Button line
         line(self.screen, self.color_tb, (x, y + self.height - self.weight_tb / 2),
              (x + self.width, y + self.height - self.weight_tb / 2), width=self.weight_tb)
-        # right line
-        line(self.screen, self.color_lr, (x + self.weight_lr / 2 - 1, y),
-             (x + self.weight_lr / 2 - 1, y + self.height), width=self.weight_lr)
-        # Left line
-        line(self.screen, self.color_lr, (x + self.width - self.weight_lr / 2, y),
-             (x + self.width - self.weight_lr / 2, y + self.height), width=self.weight_lr)
         # Middle line
-        line(self.screen, self.color_div, (x,self.height * self.pos_div),
-             (x + self.width, self.height * self.pos_div), width=self.weight_div)
+        line(self.screen, self.color_div, (x + self.weight_lr,self.height * self.pos_div),
+             (x + self.width - self.weight_lr - 1, self.height * self.pos_div), width=self.weight_div)
