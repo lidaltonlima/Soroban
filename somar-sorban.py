@@ -1,11 +1,19 @@
 from random import randint
 
-rep = ''
-while rep == '':
-    n1 = randint(4,9)
-    n2 = randint(4,9)
-    print('Some:', f'{n1} + {n2}', sep='\n')
-    input('Mostrar resposta <enter>: ')
-    print(n1 + n2)
-    rep = input('Repetir <enter, n>? ')
+while True:
+    n1 = str(randint(1, 100))
+    n2 = str(randint(1, 100))
+    
+    op = '+'
+    if int(n1) > int(n2):
+        if randint(0, 1):
+            op = '-'
+    
+    r = eval(n1 + op + n2)
+    print('Resolva:', f'{n1} {op} {n2}', sep='\n')
+    
+    resp = int(input('Resposta: '))
+    while resp != r:
+        print('ERRADO!')
+        resp = int(input('Resposta: '))
 

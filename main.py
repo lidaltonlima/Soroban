@@ -16,6 +16,8 @@ pygame.display.set_caption('Soroban')
 count = objects.Count(screen, (255, 0, 0), (0, 255, 0), 50, 30, 20)
 frame = objects.Frame(screen, (255, 0, 0), (0, 255, 0), (0, 0, 255), sb_width, sb_height, 12, 19, 8)
 
+
+
 # Main loop
 while True:
     for event in pygame.event.get():
@@ -23,7 +25,6 @@ while True:
             pygame.quit()
             exit()
             
-    frame.draw(20, 20)
-    count.draw(80, 80)
-    
+    frame.draw(10, 10)
+    count.draw(60, 50)
     pygame.display.update()
