@@ -1,3 +1,4 @@
+from logging import exception
 from random import randint
 
 while True:
@@ -10,10 +11,21 @@ while True:
             op = '-'
     
     r = eval(n1 + op + n2)
-    print('Resolva:', f'{n1} {op} {n2}', sep='\n')
+    print('\nResolva:', f'{n1} {op} {n2}', sep='\n')
     
-    resp = int(input('Resposta: '))
+    resp = 0
+    while not resp:
+        try:
+            resp = int(input('Resposta: '))
+        except ValueError:
+            print('Escreva um número inteiro!')
+            
     while resp != r:
-        print('ERRADO!')
-        resp = int(input('Resposta: '))
+        print('Tente Novamente.')
+        try:
+            resp = int(input('Resposta: '))
+        except ValueError:
+            print('Escreva um número inteiro!')
+    
+    print('ESPLENDIDO!')
 
